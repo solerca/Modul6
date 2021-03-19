@@ -33,5 +33,5 @@ public abstract class AbsStaffMember {
 	public String getPhone() {
 		return phone;
 	}
-	public abstract void pay();
+	public abstract void pay() throws UnsupportedOperationException;
 }

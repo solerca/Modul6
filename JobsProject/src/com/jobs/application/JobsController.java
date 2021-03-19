@@ -1,9 +1,12 @@
 package com.jobs.application;
 
-import java.util.List;
-
 import com.jobs.domain.AbsStaffMember;
+import com.jobs.domain.Boss;
 import com.jobs.domain.Employee;
+import com.jobs.domain.EmployeeManager;
+import com.jobs.domain.Junior;
+import com.jobs.domain.Mid;
+import com.jobs.domain.Senior;
 import com.jobs.domain.Volunteer;
 import com.jobs.persistence.EmployeeRepository;
 
@@ -17,25 +20,34 @@ public class JobsController {
 	}
 	
 	public void createBossEmployee(String name, String address, String phone, double salaryPerMonth) throws Exception{		
-		Employee boss = new Employee(name, address, phone,  salaryPerMonth, PaymentFactory.createPaymentRateBoss());
+		Boss boss = new Boss(name, address, phone,  salaryPerMonth, PaymentFactory.createPaymentRateBoss());
 		repository.addMember(boss);
 	}
 	
-	public void createEmployee(String name, String address, String phone, double salaryPerMonth) throws Exception{		
-		Employee boss = new Employee(name, address, phone,  salaryPerMonth, PaymentFactory.createPaymentRateEmployee());
+	public void createEmployeeSenior(String name, String address, String phone, double salaryPerMonth) throws Exception{		
+		Employee boss = new Senior(name, address, phone,  salaryPerMonth, PaymentFactory.createPaymentRateSenior());
+		repository.addMember(boss);
+	}
+	public void createEmployeeMid(String name, String address, String phone, double salaryPerMonth) throws Exception{		
+		Employee boss = new Mid(name, address, phone,  salaryPerMonth, PaymentFactory.createPaymentRateMid());
+		repository.addMember(boss);
+	}
+	public void createEmployeeJunior(String name, String address, String phone, double salaryPerMonth) throws Exception{		
+		Employee boss = new Junior(name, address, phone,  salaryPerMonth, PaymentFactory.createPaymentRateJunior());
 		repository.addMember(boss);
 	}
 
 	public void createManagerEmployee(String name, String address, String phone, double salaryPerMonth) throws Exception{
-		Employee boss = new Employee(name, address, phone,  salaryPerMonth, PaymentFactory.createPaymentRateManagerEmployee());
+		EmployeeManager boss = new EmployeeManager(name, address, phone,  salaryPerMonth, PaymentFactory.createPaymentRateManagerEmployee());
 		repository.addMember(boss);
 		
 	}
 
 
 	public void payAllEmployeers() {
-		List<AbsStaffMember> list = repository.getAllMembers();
+		
 		for (AbsStaffMember staffMember : repository.getAllMembers()) {
+			if (!(staffMember instanceof Volunteer))
 			staffMember.pay();
 		}
 		
@@ -52,8 +64,8 @@ public class JobsController {
 		return member;
 	}
 
-	public void createVolunteer(String name, String adress, String phone, String description) throws Exception {
-		Volunteer voluntari = new Volunteer (name, adress, phone, description);
+	public void createVolunteer(String name, String adress, String phone) throws Exception {
+		Volunteer voluntari = new Volunteer (name, adress, phone);
 		repository.addMember(voluntari);
 	}
 	

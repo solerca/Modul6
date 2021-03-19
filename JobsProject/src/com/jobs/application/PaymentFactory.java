@@ -13,20 +13,27 @@ public class PaymentFactory {
 			}
 		};
 	}
-	
-	public static IPaymentRate createPaymentRateEmployee(){
-		return new IPaymentRate() {
-			@Override
-			public double pay(double salaryPerMonth) {
-				return salaryPerMonth*0.85; 
-			}
-		};
-	}
 	public static IPaymentRate createPaymentRateSenior(){
 		return new IPaymentRate() {
 			@Override
 			public double pay(double salaryPerMonth) {
 				return salaryPerMonth*0.95; 
+			}
+		};
+	}
+	public static IPaymentRate createPaymentRateMid(){
+		return new IPaymentRate() {
+			@Override
+			public double pay(double salaryPerMonth) {
+				return salaryPerMonth*0.90; 
+			}
+		};
+	}
+	public static IPaymentRate createPaymentRateJunior(){
+		return new IPaymentRate() {
+			@Override
+			public double pay(double salaryPerMonth) {
+				return salaryPerMonth*0.85; 
 			}
 		};
 	}

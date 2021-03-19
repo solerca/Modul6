@@ -10,11 +10,11 @@ public class Main {
 	
 	public static void main(String[] args) throws Exception {
 		
-		controller.createBossEmployee("Pepe Boss", "Dirección molona", "666666666", 100.0);
-		controller.createEmployee("Pedro Employee", "Dirección molona 2", "665266666", 40.0);
-		controller.createEmployee("Laura Employee", "Dirección molona 3", "625266666", 45.0);
-		controller.createVolunteer("Juan Volunteer", "Dirección molona 4", "614266666", "voluntario");
-		controller.createManagerEmployee("Pedro Employee", "Dirección molona 2", "665226666", 80.0);
+		controller.createBossEmployee("Pepe Boss", "Dirección molona", "666666666", 8500.0);
+		controller.createEmployeeMid("Pedro Employee", "Dirección molona 2", "665266666", 2000.0);
+		controller.createEmployeeSenior("Laura Employee", "Dirección molona 3", "625266666", 3000.0);
+		controller.createVolunteer("Juan Volunteer", "Dirección molona 4", "614266666");
+		controller.createManagerEmployee("Pedro Employee", "Dirección molona 2", "665226666", 4000.0);
 		
 		
 		controller.payAllEmployeers();
