@@ -33,7 +33,7 @@ public class JobsController {
 		repository.addMember(boss);
 	}
 	public void createEmployeeJunior(String name, String address, String phone, double salaryPerMonth) throws Exception{		
-		Employee boss = new Junior(name, address, phone,  salaryPerMonth, PaymentFactory.createPaymentRateJunior());
+		Employee boss = new Junior(name, address, phone, salaryPerMonth, PaymentFactory.createPaymentRateJunior());
 		repository.addMember(boss);
 	}
 
