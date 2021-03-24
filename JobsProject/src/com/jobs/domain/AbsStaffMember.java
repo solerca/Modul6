@@ -6,8 +6,13 @@ public abstract class AbsStaffMember {
 	protected String name;
 	protected String address;
 	protected String phone;
-	protected double totalPaid=0;
-
+	protected double totalPaidBrut=0;
+	protected double totalPaidNet=0;
+	protected double salariAnualBrut=0;
+	protected double salariAnualNet=0;
+	
+	
+	
 	private static int COUNTER_MEMBERS = 1;
 
 	public AbsStaffMember(String name, String address, String phone) throws Exception {
@@ -33,5 +38,19 @@ public abstract class AbsStaffMember {
 	public String getPhone() {
 		return phone;
 	}
+	public double getSalariMensualBrut() {
+		return totalPaidBrut;
+	}
+	public double getSalariMensualNet() {
+		return totalPaidNet;
+	}
+	public double getSalariAnualBrut() {
+		return totalPaidBrut *12;
+	}
+	public double getSalariAnualNet() {
+		return totalPaidNet *12;
+	}
 	public abstract void pay() throws UnsupportedOperationException;
+
+	public abstract void payBonus() throws UnsupportedOperationException;
 }

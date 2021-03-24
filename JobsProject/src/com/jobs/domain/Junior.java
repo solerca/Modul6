@@ -19,7 +19,8 @@ public class Junior extends Employee{
 	
 	@Override
 	public void pay() {
-		totalPaid=paymentRate.pay(salaryPerMonth);
+		totalPaidBrut=paymentRate.pay(salaryPerMonth);
+		totalPaidNet = totalPaidBrut - (totalPaidBrut * 0.2);
 	}
 
 }

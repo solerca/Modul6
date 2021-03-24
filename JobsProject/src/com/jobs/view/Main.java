@@ -17,7 +17,9 @@ public class Main {
 		controller.createManagerEmployee("Pedro Employee", "Dirección molona 2", "665226666", 4000.0);
 		
 		
+		controller.payBonusToAllEmployeers();
 		controller.payAllEmployeers();
+		
 		
 		String allEmployees=controller.getAllEmployees();
 		

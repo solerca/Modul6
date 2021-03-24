@@ -19,7 +19,11 @@ public class EmployeeManager extends AbsStaffMember {
 	
 	@Override
 	public void pay() {
-		totalPaid=paymentRate.pay(salaryPerMonth);
+		totalPaidBrut=paymentRate.pay(salaryPerMonth);
+		totalPaidNet = totalPaidBrut - (totalPaidBrut * 0.26);
+	}
+	public void payBonus() {
+		salaryPerMonth += salaryPerMonth*1.2;
 	}
 
 }
